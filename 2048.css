@@ -1,12 +1,11 @@
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-image: url("https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg");
+    overflow: hidden;
 }
 
-hr {
-    width: 500px;
-}
 
 #board {
     width: 400px;
@@ -18,13 +17,14 @@ hr {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .tile {
     width: 90px;
     height: 90px;
     border: 5px solid #bbada0;
-
+    
     font-size: 40px;
     font-weight: bold;
     display: flex;
@@ -112,4 +112,15 @@ hr {
 @media all and (min-width:480px) and (max-width:767px) { /*스타일입력*/}
 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
-@media all and (max-width:479px) { /*스타일입력*/}
+@media all and (max-width:479px) {
+    #board {
+        width: 300px;
+        height: 300px;
+        border: 5px solid #bbada0;
+    }
+    .tile {
+        width: 65px;
+        height: 65px;
+        border: 5px solid #bbada0;
+    }
+}
