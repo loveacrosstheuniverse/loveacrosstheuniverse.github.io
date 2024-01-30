@@ -75,27 +75,33 @@ document.addEventListener('keyup', (e) => {
 document.addEventListener('touchstart', (event) => {
     touchX = event.changedTouches[0].clientX;
     touchY = event.changedTouches[0].clientY;
-    console.log("터치시작 " + touchX, touchY);
   });
 
   document.addEventListener('touchend', (event) => {
     const deltaX = event.changedTouches[0].clientX - touchX;
     const deltaY = event.changedTouches[0].clientY - touchY;
-    console.log("터치끝 " + touchX, touchY);
 
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      if (deltaX < 0) {
-        slideLeft();
-      } else {
-        slideRight();
-      }
-    } else {
-      if (deltaY < 0) {
-        slideUp();
-      } else {
-        slideDown();
-      }
+    if(!(deltaX == 0 && deltaY == 0)){
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) {
+              slideLeft();
+              setTwo();
+            } else {
+              slideRight();
+              setTwo();
+            }
+          } else {
+            if (deltaY < 0) {
+              slideUp();
+              setTwo();
+            } else {
+              slideDown();
+              setTwo();
+            }
+          }
     }
+
+    document.getElementById("score").innerText = score;
   });
 
 
