@@ -37,13 +37,15 @@ body {
 
 .x2 {
     background-color: #eee4da;
-    background-image: url("./images/2.jpeg");
+    background-image: url("./images/2.jpg");
     background-size: 100%;
     color: #727371;
 }
 
 .x4 {
     background-color: #ece0ca;
+    background-image: url("./images/4.jpg");
+    background-size: 100%;
     color: #727371;
 }
 
