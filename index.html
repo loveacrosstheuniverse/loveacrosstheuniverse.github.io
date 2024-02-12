@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +12,14 @@
     <body>
         <h1 style="color: white">2048</h1>
         <hr>
-        <h2 style="color: white">Score: <span id="score">0</span></h2>
+        <div style="display: inline-flex;">
+            <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p>
+            <button id="restart_button" onclick="restart()">새로고침</button>
+        </div>
+        <div>
+            <h2 style="color: white">Score: <span id="score">0</span></h2>
+            <h2 style="color: white">Highest Score: <span id="highest_score">0</span></h2>
+        </div>
         <div id="board">
         </div>
     </body>

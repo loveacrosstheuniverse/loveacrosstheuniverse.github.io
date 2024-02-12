@@ -31,8 +31,22 @@ body {
     justify-content: center;
     align-items: center;
 }
+.nickname {
+    width: 100px;
+    padding: 8px 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-size: 9pt;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    color: white;
+}
 
-
+/*
+.restart_button {
+    color: white;}
+    */
 /* colored tiles */
 
 .x2 {

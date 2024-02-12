@@ -2,18 +2,27 @@ var board;
 var score = 0;
 var rows = 4;
 var columns = 4;
+var highest_score = 0;
 
 window.onload = function() {
     setGame();
 }
 
-function setGame() {
-    // board = [
-    //     [2, 2, 2, 2],
-    //     [2, 2, 2, 2],
-    //     [4, 4, 8, 8],
-    //     [4, 4, 8, 8]
-    // ];
+var setCookie = function(name, value) {      
+    var date = new Date(Date.now() + 86400e3);    
+     document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';  
+};
+var getCookie = function(name) {     
+    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');      
+    return value? value[2] : null; 
+};
+
+ function setGame() {
+    if (getCookie("highest_score") == null){
+        setCookie("highest_score", 0);
+    } else {
+        highest_score = parseInt(getCookie("highest_score"));
+    }
 
     board = [
         [0, 0, 0, 0],
@@ -42,7 +51,6 @@ function updateTile(tile, num) {
     tile.classList.value = ""; //clear the classList
     tile.classList.add("tile");
     if (num > 0) {
-        //tile.innerText = num.toString();
         if (num <= 4096) {
             tile.classList.add("x"+num.toString());
         } else {
@@ -70,6 +78,12 @@ document.addEventListener('keyup', (e) => {
         setTwo();
     }
     document.getElementById("score").innerText = score;
+    if(score > highest_score) {
+        highest_score = score;
+        setCookie("highest_score", score);
+        document.getElementById("highest_score").innerText = score;
+    }
+    
 });
 
 document.addEventListener('touchstart', (event) => {
@@ -102,9 +116,25 @@ document.addEventListener('touchstart', (event) => {
     }
 
     document.getElementById("score").innerText = score;
+    if(score > highest_score) {
+        highest_score = score;
+        setCookie("highest_score", score);
+        document.getElementById("highest_score").innerText = score;
+    }
   });
 
-
+function restart() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++){
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            updateTile(tile, 0);
+        }
+    }
+    score = 0;
+    document.getElementById("score").innerText = score;
+    setTwo();
+    setTwo();
+}
 
 function filterZero(row){
     return row.filter(num => num != 0); //create new array of all nums != 0
