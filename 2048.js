@@ -128,6 +128,7 @@ function restart() {
         for (let c = 0; c < columns; c++){
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             updateTile(tile, 0);
+            board[r][c] = 0;
         }
     }
     score = 0;
