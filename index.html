@@ -10,17 +10,27 @@
     </head>
 
     <body>
-        <h1 style="color: white">2 ⋅ 0 ⋅ 4 ⋅ 8</h1>
-        <hr>
-        <div style="display: inline-flex;">
-            <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p>
-            <button id="restart_button" onclick="restart()">새로고침</button>
+        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
+            <div style="display: flex; justify-content: space-evenly;">
+                <div class="score_board">
+                    <p style="margin: 0px">현재 점수<br><span id="score">0</span></p>
+                </div>
+                <div class="score_board">
+                    <p style="margin: 0px">최고 점수<br><span id="highest_score">0</span></p>
+                </div>
+                <div style="display : flex;justify-content: center;align-items : center;">
+                    <p style="color: white; margin: 0px">2⋅0⋅4⋅8</p>
+                </div>
+            </div>
+            <p>
+            <div style="float: right; margin-bottom:  10%;">
+                <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p>
+                <button id="restart_button" onclick="restart()" style="float: right; padding: 5px; border: none;">새로고침</button>
+            </div>
+            <p></p>
+            <div id="board">
+            </div>
         </div>
-        <div>
-            <h2 style="color: white">Score: <span id="score">0</span></h2>
-            <h2 style="color: white">Highest Score: <span id="highest_score">0</span></h2>
-        </div>
-        <div id="board">
-        </div>
+
     </body>
 </html>
