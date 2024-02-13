@@ -124,10 +124,12 @@ document.addEventListener('touchstart', (event) => {
   });
 
 function restart() {
+    console.log("restart");
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++){
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             updateTile(tile, 0);
+            board[r][c] = 0;
         }
     }
     score = 0;

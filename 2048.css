@@ -1,8 +1,12 @@
 
+html{
+    background: url("./images/background.png") no-repeat center fixed;  
+    background-size: cover;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-image: url("https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg");
     overflow: hidden;
 }
 
@@ -13,7 +17,7 @@ body {
 
     background-color: #cdc1b5;
     border: 6px solid #bbada0;
-
+    border-radius: 3%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +28,6 @@ body {
     width: 90px;
     height: 90px;
     border: 5px solid #bbada0;
-    
     font-size: 40px;
     font-weight: bold;
     display: flex;
@@ -65,56 +68,78 @@ body {
 
 .x8 {
     background-color: #f4b17a;
+    background-image: url("./images/8.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x16{
     background-color: #f59575;
+    background-image: url("./images/16.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x32{
     background-color: #f57c5f;
+    background-image: url("./images/32.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x64{
     background-color: #f65d3b;
+    background-image: url("./images/64.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x128{
     background-color: #edce71;
+    background-image: url("./images/128.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x256{
     background-color: #edcc63;
+    background-image: url("./images/256.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x512{
     background-color: #edc651;
+    background-image: url("./images/512.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x1024{
     background-color: #eec744;
+    background-image: url("./images/1024.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x2048{
     background-color: #ecc230;
+    background-image: url("./images/2048.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x4096 {
     background-color: #fe3d3d;
+    background-image: url("./images/4096.jpg");
+    background-size: 100%;
     color: white;
 }
 
 .x8192 {
     background-color: #ff2020;
+    background-image: url("./images/8192.jpg");
+    background-size: 100%;
     color: white;
 }
 
