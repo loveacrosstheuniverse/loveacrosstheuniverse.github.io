@@ -11,6 +11,10 @@
 
     <body>
         <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
+            <div style="background-color: yellow; width: 350px; height: 100px;">
+
+            </div>
+            <br>
             <div style="display: flex; justify-content: space-evenly;">
                 <div class="score_board">
                     <p style="margin: 0px">현재 점수<br><span id="score">0</span></p>
@@ -24,13 +28,13 @@
             </div>
             <p>
             <div style="float: right; margin-bottom:  10%;">
-                <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p>
                 <button id="restart_button" onclick="restart()" style="float: right; padding: 5px; border: none;">새로고침</button>
+                <br>
+                <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p>
             </div>
             <p></p>
             <div id="board">
             </div>
         </div>
-
     </body>
 </html>

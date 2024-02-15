@@ -5,6 +5,7 @@ var rows = 4;
 var columns = 4;
 var highest_score = 0;
 
+
 window.onload = function() {
     setGame();
 }
@@ -46,6 +47,28 @@ function updateTile(tile, num) {
     }
 }
 
+function isOver() {
+    for(let i=0; i<rows-1; i++){
+        for(let j=0; j<columns-1; j++){
+            if(board[i][j] == board[i][j+1] || board[i][j] == board[i+1][j]) 
+                return false;
+        }
+    }
+    for(let j=0; j<columns-1; j++){
+        if(board[rows-1][j] == board[rows-1][j+1]) return false;
+    }
+    for(let i=0; i<rows-1; i++){
+        if(board[i][columns-1] == board[i+1][columns-1]) return false;
+    }
+
+    for(let i=0; i<rows; i++){
+        for(let j=0; j<columns; j++){
+            if(board[i][j] == 0) return false;
+        }
+    }
+    return true;
+}
+
 document.addEventListener('keyup', (e) => {
     origin_board = board.map(v => [...v]);
     if (e.code == "ArrowLeft") {
@@ -64,6 +87,15 @@ document.addEventListener('keyup', (e) => {
 
     if(JSON.stringify(board) != JSON.stringify(origin_board)){
         setTwo();
+    }
+    if(isOver()) {
+        if(confirm('game over 재도전하시겠습니까?')){
+            //확인 버튼
+            restart();
+        }
+        else{
+            //취소 버튼
+        }
     }
 
     document.getElementById("score").innerText = score;
@@ -100,6 +132,9 @@ document.addEventListener('touchstart', (event) => {
         }
         if(JSON.stringify(board) != JSON.stringify(origin_board)){
             setTwo();
+        }
+        if(isOver()) {
+            console.log('game over');
         }
     }
 
