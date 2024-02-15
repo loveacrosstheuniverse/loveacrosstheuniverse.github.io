@@ -8,21 +8,7 @@ window.onload = function() {
     setGame();
 }
 
-var setCookie = function(name, value) {      
-    var date = new Date(Date.now() + 86400e3);    
-     document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';  
-};
-var getCookie = function(name) {     
-    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');      
-    return value? value[2] : null; 
-};
-
  function setGame() {
-    if (getCookie("highest_score") == null){
-        setCookie("highest_score", 0);
-    } else {
-        highest_score = parseInt(getCookie("highest_score"));
-    }
 
     board = [
         [0, 0, 0, 0],
@@ -80,7 +66,6 @@ document.addEventListener('keyup', (e) => {
     document.getElementById("score").innerText = score;
     if(score > highest_score) {
         highest_score = score;
-        setCookie("highest_score", score);
         document.getElementById("highest_score").innerText = score;
     }
     
@@ -118,7 +103,6 @@ document.addEventListener('touchstart', (event) => {
     document.getElementById("score").innerText = score;
     if(score > highest_score) {
         highest_score = score;
-        setCookie("highest_score", score);
         document.getElementById("highest_score").innerText = score;
     }
   });
@@ -191,10 +175,6 @@ function slideUp() {
     for (let c = 0; c < columns; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]];
         row = slide(row);
-        // board[0][c] = row[0];
-        // board[1][c] = row[1];
-        // board[2][c] = row[2];
-        // board[3][c] = row[3];
         for (let r = 0; r < rows; r++){
             board[r][c] = row[r];
             let tile = document.getElementById(r.toString() + "-" + c.toString());
@@ -210,10 +190,7 @@ function slideDown() {
         row.reverse();
         row = slide(row);
         row.reverse();
-        // board[0][c] = row[0];
-        // board[1][c] = row[1];
-        // board[2][c] = row[2];
-        // board[3][c] = row[3];
+
         for (let r = 0; r < rows; r++){
             board[r][c] = row[r];
             let tile = document.getElementById(r.toString() + "-" + c.toString());
@@ -235,7 +212,6 @@ function setTwo() {
         if (board[r][c] == 0) {
             board[r][c] = 2;
             let tile = document.getElementById(r.toString() + "-" + c.toString());
-            //tile.innerText = "2";
             tile.classList.add("x2");
             found = true;
         }
