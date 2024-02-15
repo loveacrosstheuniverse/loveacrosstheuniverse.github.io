@@ -1,4 +1,5 @@
 var board;
+var origin_board;
 var score = 0;
 var rows = 4;
 var columns = 4;
@@ -46,23 +47,25 @@ function updateTile(tile, num) {
 }
 
 document.addEventListener('keyup', (e) => {
+    origin_board = board.map(v => [...v]);
     if (e.code == "ArrowLeft") {
         slideLeft();
-        setTwo();
     }
     else if (e.code == "ArrowRight") {
         slideRight();
-        setTwo();
     }
     else if (e.code == "ArrowUp") {
         slideUp();
-        setTwo();
 
     }
     else if (e.code == "ArrowDown") {
         slideDown();
+    }
+
+    if(JSON.stringify(board) != JSON.stringify(origin_board)){
         setTwo();
     }
+
     document.getElementById("score").innerText = score;
     if(score > highest_score) {
         highest_score = score;
@@ -81,23 +84,23 @@ document.addEventListener('touchstart', (event) => {
     const deltaY = event.changedTouches[0].clientY - touchY;
 
     if(!(deltaX == 0 && deltaY == 0)){
+        origin_board = board.map(v => [...v]);
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
             if (deltaX < 0) {
               slideLeft();
-              setTwo();
             } else {
               slideRight();
-              setTwo();
             }
           } else {
             if (deltaY < 0) {
               slideUp();
-              setTwo();
             } else {
               slideDown();
-              setTwo();
             }
-          }
+        }
+        if(JSON.stringify(board) != JSON.stringify(origin_board)){
+            setTwo();
+        }
     }
 
     document.getElementById("score").innerText = score;
