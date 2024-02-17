@@ -5,6 +5,7 @@ var rows = 4;
 var columns = 4;
 var highest_score = 0;
 var flag2048 = false;
+var youwinFlag = false;
 
 
 window.onload = function() {
@@ -90,9 +91,10 @@ document.addEventListener('keyup', (e) => {
     if(JSON.stringify(board) != JSON.stringify(origin_board)){
         setTwo();
     }
-    if(flag2048){
+    if(!youwinFlag && flag2048){
         document.getElementById('youwinPopupContainer').style.display = 'block';
         flag2048 = false;
+        youwinFlag = true;
     }
 
     if(isOver()) {
@@ -134,10 +136,11 @@ document.addEventListener('touchstart', (event) => {
         if(JSON.stringify(board) != JSON.stringify(origin_board)){
             setTwo();
         }
-        if(flag2048){
+        if(!youwinFlag && flag2048){
             document.getElementById('youwinPopupContainer').style.display = 'block';
             flag2048 = false;
-        }
+            youwinFlag = true;
+        }    
     
         if(isOver()) {
             document.getElementById('gameoverPopupContainer').style.display = 'block';
@@ -153,6 +156,7 @@ document.addEventListener('touchstart', (event) => {
 
 function restart() {
     flag2048 = false;
+    youwinFlag = false;
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++){
             let tile = document.getElementById(r.toString() + "-" + c.toString());
