@@ -37,11 +37,19 @@
             </div>
         </div>
         <!-- popup -->
-        <div id="popupContainer" class="popup-container">
-            <div class="popup">
-                <span id="closePopup" class="close-btn">×</span>
+        <div id="gameoverPopupContainer" class="popup-container">
+            <div class="gameoverPopup">
+                <span id="closePopup" class="close-btn" onclick="closeGameoverPopup()">×</span>
                 <h2>Game Over</h2>
-                <p id="restart">Try again</p>
+                <p id="restart" onclick="closeGameoverPopup(); restart();">Try again</p>
+            </div>
+        </div>
+        <div id="youwinPopupContainer" class="popup-container">
+            <div class="youwinPopup">
+                <span id="closePopup" class="close-btn" onclick="closeYouwinPopup()">×</span>
+                <h2>You win</h2>
+                <p id="keepPlaying" onclick="closeYouwinPopup()">Keep Playing</p>
+                <p id="restart" onclick="closeYouwinPopup(); restart();">Try again</p>
             </div>
         </div>
         <script src="2048.js"></script>

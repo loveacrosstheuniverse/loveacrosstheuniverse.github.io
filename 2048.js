@@ -4,7 +4,7 @@ var score = 0;
 var rows = 4;
 var columns = 4;
 var highest_score = 0;
-
+var flag2048 = false;
 
 
 window.onload = function() {
@@ -40,6 +40,7 @@ function updateTile(tile, num) {
     tile.classList.value = ""; //clear the classList
     tile.classList.add("tile");
     if (num > 0) {
+        if(num == 2048) flag2048 = true;
         if (num <= 4096) {
             tile.classList.add("x"+num.toString());
         } else {
@@ -86,11 +87,16 @@ document.addEventListener('keyup', (e) => {
         slideDown();
     }
 
+    if(flag2048){
+        document.getElementById('youwinPopupContainer').style.display = 'block';
+        flag2048 = false;
+    }
+
     if(JSON.stringify(board) != JSON.stringify(origin_board)){
         setTwo();
     }
     if(isOver()) {
-        document.getElementById('popupContainer').style.display = 'block';
+        document.getElementById('gameoverPopupContainer').style.display = 'block';
     }
 
     document.getElementById("score").innerText = score;
@@ -141,7 +147,7 @@ document.addEventListener('touchstart', (event) => {
   });
 
 function restart() {
-    console.log("restart");
+    flag2048 = false;
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++){
             let tile = document.getElementById(r.toString() + "-" + c.toString());
@@ -264,11 +270,9 @@ function hasEmptyTile() {
 }
 
 // popup
-document.getElementById('closePopup').addEventListener('click', function() {
-    document.getElementById('popupContainer').style.display = 'none';
-});
-
-document.getElementById('restart').addEventListener('click', function() {
-    document.getElementById('popupContainer').style.display = 'none';
-    restart();
-});
+function closeGameoverPopup() {
+    document.getElementById('gameoverPopupContainer').style.display = 'none';
+}
+function closeYouwinPopup() {
+    document.getElementById('youwinPopupContainer').style.display = 'none';
+}
