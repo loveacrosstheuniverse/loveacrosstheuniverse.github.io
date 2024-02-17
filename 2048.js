@@ -87,14 +87,14 @@ document.addEventListener('keyup', (e) => {
         slideDown();
     }
 
+    if(JSON.stringify(board) != JSON.stringify(origin_board)){
+        setTwo();
+    }
     if(flag2048){
         document.getElementById('youwinPopupContainer').style.display = 'block';
         flag2048 = false;
     }
 
-    if(JSON.stringify(board) != JSON.stringify(origin_board)){
-        setTwo();
-    }
     if(isOver()) {
         document.getElementById('gameoverPopupContainer').style.display = 'block';
     }
@@ -134,8 +134,13 @@ document.addEventListener('touchstart', (event) => {
         if(JSON.stringify(board) != JSON.stringify(origin_board)){
             setTwo();
         }
+        if(flag2048){
+            document.getElementById('youwinPopupContainer').style.display = 'block';
+            flag2048 = false;
+        }
+    
         if(isOver()) {
-            document.getElementById('popupContainer').style.display = 'block';
+            document.getElementById('gameoverPopupContainer').style.display = 'block';
         }
     }
 
