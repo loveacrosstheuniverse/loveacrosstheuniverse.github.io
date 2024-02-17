@@ -89,6 +89,7 @@ body {
 }
 
 #restart_button{
+    color: black;
     float: right; 
     padding: 5px; 
     border: none;
