@@ -6,6 +6,7 @@ var columns = 4;
 var highest_score = 0;
 
 
+
 window.onload = function() {
     setGame();
 }
@@ -89,13 +90,7 @@ document.addEventListener('keyup', (e) => {
         setTwo();
     }
     if(isOver()) {
-        if(confirm('game over 재도전하시겠습니까?')){
-            //확인 버튼
-            restart();
-        }
-        else{
-            //취소 버튼
-        }
+        document.getElementById('popupContainer').style.display = 'block';
     }
 
     document.getElementById("score").innerText = score;
@@ -267,3 +262,13 @@ function hasEmptyTile() {
     }
     return false;
 }
+
+// popup
+document.getElementById('closePopup').addEventListener('click', function() {
+    document.getElementById('popupContainer').style.display = 'none';
+});
+
+document.getElementById('restart').addEventListener('click', function() {
+    document.getElementById('popupContainer').style.display = 'none';
+    restart();
+});

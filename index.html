@@ -6,35 +6,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>2048</title>
         <link rel="stylesheet" href="2048.css">
-        <script src="2048.js"></script>
+
     </head>
 
     <body>
         <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
-            <div style="background-color: yellow; width: 350px; height: 100px;">
-
+            <div style="height: 100px;">
+                <h1 style="color:white; font-family: cursive;">Love across <br> the universe</h1>
             </div>
             <br>
             <div style="display: flex; justify-content: space-evenly;">
                 <div class="score_board">
-                    <p style="margin: 0px">현재 점수<br><span id="score">0</span></p>
+                    <p style="margin: 0px">SCORE<br><span id="score" style="font-weight: bold; font-size: 18px;">0</span></p>
                 </div>
                 <div class="score_board">
-                    <p style="margin: 0px">최고 점수<br><span id="highest_score">0</span></p>
+                    <p style="margin: 0px">BEST<br><span id="highest_score" style="font-weight: bold; font-size: 18px;">0</span></p>
                 </div>
                 <div style="display : flex;justify-content: center;align-items : center;">
                     <p style="color: white; margin: 0px">2⋅0⋅4⋅8</p>
                 </div>
             </div>
             <p>
-            <div style="float: right; margin-bottom:  10%;">
-                <button id="restart_button" onclick="restart()" style="float: right; padding: 5px; border: none;">새로고침</button>
-                <br>
-                <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p>
+            <div style="float: right; margin-bottom: 10%;">
+                <button id="restart_button" onclick="restart()" >New Game</button>
+                <!-- <br> -->
+                <!-- <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p> -->
             </div>
-            <p></p>
+            <br>
             <div id="board">
             </div>
         </div>
+        <!-- popup -->
+        <div id="popupContainer" class="popup-container">
+            <div class="popup">
+                <span id="closePopup" class="close-btn">×</span>
+                <h2>Game Over</h2>
+                <p id="restart">Try again</p>
+            </div>
+        </div>
+        <script src="2048.js"></script>
     </body>
 </html>
