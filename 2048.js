@@ -129,7 +129,7 @@ document.addEventListener('touchstart', (event) => {
             setTwo();
         }
         if(isOver()) {
-            console.log('game over');
+            document.getElementById('popupContainer').style.display = 'block';
         }
     }
 
