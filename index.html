@@ -11,8 +11,7 @@
 
     <body>
         <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
-            <div style="height: 100px;">
-                <h1 style="color:white; font-family: cursive;">Love across <br> the universe</h1>
+            <div class="title" style="height: 120px; background-image: url('./images/title.png'); background-size: 100%; background-repeat:no-repeat;">
             </div>
             <br>
             <div style="display: flex; justify-content: space-evenly;">
@@ -28,9 +27,7 @@
             </div>
             <p>
             <div style="float: right; margin-bottom: 10%;">
-                <button id="restart_button" onclick="restart()" >New Game</button>
-                <!-- <br> -->
-                <!-- <p class="game-intro"><input class="nickname" placeholder="닉네임"> </p> -->
+                <button id="restart_button" onclick="restart()" >새로 고침</button>
             </div>
             <br>
             <div id="board">
@@ -39,17 +36,17 @@
         <!-- popup -->
         <div id="gameoverPopupContainer" class="popup-container">
             <div class="gameoverPopup">
-                <span id="closePopup" class="close-btn" onclick="closeGameoverPopup()">×</span>
-                <h2>Game Over</h2>
-                <p id="restart" onclick="closeGameoverPopup(); restart();">Try again</p>
+                <h2>공략 실패</h2>
+                <p id="restart" onclick="closeGameoverPopup(); restart();" style="background-color: grey; padding: 10px; border-radius: 100%;">재시도</p>
             </div>
         </div>
         <div id="youwinPopupContainer" class="popup-container">
             <div class="youwinPopup">
-                <span id="closePopup" class="close-btn" onclick="closeYouwinPopup()">×</span>
-                <h2>You win</h2>
-                <p id="keepPlaying" onclick="closeYouwinPopup()">Keep Playing</p>
-                <p id="restart" onclick="closeYouwinPopup(); restart();">Try again</p>
+                <h2>공략 성공</h2>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <p id="keepPlaying" onclick="closeYouwinPopup()" style="background-color: grey; padding: 10px; border-radius: 100%; margin:5px; padding: 10px;">계속하기</p>
+                    <p id="restart" onclick="closeYouwinPopup(); restart();" style="background-color: grey; padding: 10px; border-radius: 100%; margin:5px; padding: 10px;">재시도</p>
+                </div>
             </div>
         </div>
         <script src="2048.js"></script>
